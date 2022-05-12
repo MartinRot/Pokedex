@@ -4,14 +4,10 @@ import List from '../List/List'
 
 const Dashboard = () => {
 
-  return (
-    <div>      
+  return (    
       <PokeProvider value={{}}>
-
-        <List />
-      
-      </PokeProvider>
-    </div>
+        <List />      
+      </PokeProvider>    
   )
 }
 

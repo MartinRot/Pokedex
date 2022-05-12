@@ -14,10 +14,7 @@ const Login = () => {
     } 
 
   return (
-
-    <>
-        <LoginForm onSuccess={onLoginFormSuccess} />
-    </>
+    <LoginForm onSuccess={onLoginFormSuccess} />
   )
 }
 

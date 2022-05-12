@@ -4,9 +4,7 @@ import LandingComponent from '../../components/Landing/LandingComponent';
 const Landing = () => {
 
   return (
-
-    <LandingComponent />
-    
+    <LandingComponent />    
   )
 }
 

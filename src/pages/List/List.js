@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card/Card'
-import "./List.css"
 import axios from "axios";
 import { getPokemons } from '../../services/pokemons'
 
@@ -30,8 +29,7 @@ const List = () => {
     
   }
   
-    const getPokemon = async (results) => {    
-
+    const getPokemon = async (results) => {   
       results.map(async(item) => {
         const result = await axios.get(item.url)             
         
@@ -62,27 +60,28 @@ const List = () => {
     
   return (
 
-    <>    
-    
-      <div className='bg-indigo-500'>
+    <>   
+      <div className="bg-gradient-to-tr from-sky-200 to-sky-600">
 
         <div className="flex justify-center">
             <img className='mt-8' src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi" />          
         </div> 
 
+        {/* Buttons */}
         <div className="max-w-lg p-6 container flex justify-center mx-auto mt-8">
           <div className="flex flex-row mx-auto">
 
-            <button onClick={prevClick} type="button" className="bg-gray-900 text-white rounded-l-md border-r border-gray-100 py-2 hover:bg-blue-700 hover:text-white px-3">
+            { prevUrl && 
+            <button onClick={prevClick} type="button" className="bg-sky-700 text-white mr-10 rounded-l-md  py-2 hover:bg-blue-700 hover:text-white px-3">
               <div className="flex flex-row align-middle">
                 <svg className="w-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path>
                 </svg>
                 <p className="ml-2">Prev</p>
               </div>
-            </button>
+            </button> }
 
-            <button onClick={nextClick} type="button" className="bg-gray-900 text-white rounded-r-md py-2 border-l border-gray-200 hover:bg-blue-700 hover:text-white px-3">
+            <button onClick={nextClick} type="button" className="bg-sky-700 text-white rounded-r-md py-2  hover:bg-blue-700 hover:text-white px-3">
               <div className="flex flex-row align-middle">
                 <span className="mr-2">Next</span>
                 <svg className="w-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
