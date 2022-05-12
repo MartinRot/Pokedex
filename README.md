@@ -1,3 +1,11 @@
+# POKEAPI ![Pokebola](https://cdn.emojidex.com/emoji/px32/Pokebola.png "Pokebola")
+
+## Technologies
+To build this app I used [ReactJS](https://reactjs.org/), CSS, and HTML.
+
+## Demo
+You can see it deployed [here](https://gregarious-medovik-37f771.netlify.app/) 👈
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
