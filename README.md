@@ -1,3 +1,5 @@
+# POKEAPI ![Pokebola](https://cdn.emojidex.com/emoji/px32/Pokebola.png "Pokebola")
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
