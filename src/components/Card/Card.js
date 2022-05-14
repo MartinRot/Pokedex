@@ -13,8 +13,7 @@ const Card = ({pokemon, loading}) => {
             loading ? <Loading /> :
             pokemon.map((item) => {
 
-                const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png`
-     
+                const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${item.id}.png`     
                 
                 return(
                     <a onClick={() => navigate(`/${item.id}`)} key={item.id} >      
@@ -30,7 +29,6 @@ const Card = ({pokemon, loading}) => {
                         </div>
                     </a>
                 )
-
 
             })
         }

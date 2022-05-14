@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { getPokemons } from '../../services/pokemons'
 import { useNavigate } from "react-router-dom";
 import Loading from '../Loading/Loading';
+import { Pokeball } from '../../components/Pokeball/Pokeball';
+import { useDashboard } from '../../hooks/useDashboard';
 
 const PokeDetails = () => {
 
@@ -13,7 +15,8 @@ const PokeDetails = () => {
     const [ loading, setLoading ] = useState(false)    
     const [url, setUrl] = useState(`https://pokeapi.co/api/v2/pokemon/${id}/`)
     const [ prevId, setPrevId ] = useState()
-    const [ nextId, setNextId ] = useState()  
+    const [ nextId, setNextId ] = useState()      
+    const pokeWidth='20%' 
 
     useEffect(() => {  
         
@@ -51,11 +54,19 @@ const PokeDetails = () => {
     }    
 
     const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+    const { onLogout } = useDashboard()
 
-  return (    
-      
+  return (          
 
-    <div className='flex h-screen items-center justify-center bg-gradient-to-tr from-sky-200 to-sky-500 flex-col'> 
+    <div className='flex h-screen items-center justify-center bg-gradient-to-tr from-sky-200 to-sky-600 flex-col'> 
+    
+    {/* Logout */}      
+    <div className='flex self-end'>
+        <button onClick={onLogout} className="flex self-end items-center w-28 justify-end rounded px-3 py-1 mr-4 border-b-4 border-l-2 shadow-lg bg-sky-700 hover:bg-blue-700 border-blue-800" href="">
+            <Pokeball maxWidth={pokeWidth} /> <span className='ml-2 capitalize text-xl font-medium text-white'>Logout</span>
+        </button>    
+    </div>
+    {/* Logout */}  
 
     <div className="flex justify-center">
         <img className='mb-10' src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi" />          
@@ -89,6 +100,7 @@ const PokeDetails = () => {
     { loading ? <Loading /> :
         /* Card  */
         <div className="w-80 rounded-2xl shadow px-6 box-border bg-[#f3f3f3] h-[36rem] space-y-4 flex-col">
+
             {/* IMG */}                                   
             <img className="w-full h-64 rounded-md" src={img} alt={pokemon.name} /> 
 

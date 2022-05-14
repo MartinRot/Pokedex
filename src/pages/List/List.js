@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Card from '../../components/Card/Card'
 import axios from "axios";
 import { getPokemons } from '../../services/pokemons'
+import "./List.css"
+import { Pokeball } from '../../components/Pokeball/Pokeball';
+import { useDashboard } from '../../hooks/useDashboard';
 
 const List = () => {
         
@@ -9,25 +12,8 @@ const List = () => {
     const [loading, setLoading] = useState(true)
     const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
     const [nextUrl, setNextUrl] = useState()
-    const [prevUrl, setPrevUrl] = useState()
-
-    const fetchPokemons = async() => {
-
-      try{
-      setLoading(true)
-
-      const { next, previous, results } = await getPokemons(url);
-      
-      setNextUrl(next)
-      setPrevUrl(previous)    
-      getPokemon(results)
-      setLoading(false) 
-
-    } catch (error) {
-      console.log(error.message);
-    }
-    
-  }
+    const [prevUrl, setPrevUrl] = useState()    
+    const pokeWidth='20%'     
   
     const getPokemon = async (results) => {   
       results.map(async(item) => {
@@ -44,6 +30,25 @@ const List = () => {
     } 
 
     useEffect(() => {
+
+      const fetchPokemons = async() => {
+
+        try{
+        setLoading(true)
+  
+        const { next, previous, results } = await getPokemons(url);
+        
+        setNextUrl(next)
+        setPrevUrl(previous)    
+        getPokemon(results)
+        setLoading(false) 
+  
+      } catch (error) {
+        console.log(error.message);
+      }
+      
+    }
+
       fetchPokemons();       
       //console.log("mounted")       
     }, [url]);
@@ -57,11 +62,22 @@ const List = () => {
       setPokemons([])  
       setUrl(nextUrl)
     }
+
+    const { onLogout } = useDashboard()
+
     
   return (
 
     <>   
       <div className="bg-gradient-to-tr from-sky-200 to-sky-600">
+
+      {/* Logout */}      
+        <div className="flex flex-row-reverse">   
+          <button onClick={onLogout} className="flex items-center w-28 justify-end rounded px-3 py-1 m-4 border-b-4 border-l-2 shadow-lg bg-sky-700 hover:bg-blue-700 border-blue-800" href="">
+            <Pokeball maxWidth={pokeWidth} /> <span className='ml-2 capitalize text-xl font-medium text-white'>Logout</span>
+          </button>          
+        </div>
+      {/* Logout */}      
 
         <div className="flex justify-center">
             <img className='mt-8' src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi" />          
@@ -91,7 +107,10 @@ const List = () => {
             </button>            
           </div>
         </div>
+        {/* Buttons */}
 
+
+        {/* Cards */}
         <div className="flex justify-center align-baseline content-center flex-wrap">
             <Card pokemon={pokemons} loading={loading}/> 
         </div>
