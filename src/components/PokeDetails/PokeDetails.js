@@ -22,8 +22,10 @@ const PokeDetails = () => {
         
         const fetchPokemons = async() => {
             try{
+
                 setLoading(true)      
                 const { name, abilities, stats, id } = await getPokemons(url);
+                
                 setPokemon({ name, abilities, stats, id })
                 setLoading(false)              
                 
@@ -84,7 +86,8 @@ const PokeDetails = () => {
             </div>
         </button> }
 
-        <button className='bg-sky-700 text-white mr-10 rounded-md min-w-0 py-2 hover:bg-blue-700 hover:text-white px-3' onClick={() => navigate('/')}>List</button>        
+        {/* List */}
+        <button onClick={() => navigate('/')} className='bg-sky-700 text-white mr-10 rounded-md min-w-0 py-2 hover:bg-blue-700 hover:text-white px-3'>List</button>        
 
         <button onClick={nextClick} type="button" className="bg-sky-700 text-white rounded-r-md py-2  hover:bg-blue-700 hover:text-white px-3">
             <div className="flex flex-row align-middle">

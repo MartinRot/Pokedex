@@ -41,7 +41,7 @@ const List = () => {
         setNextUrl(next)
         setPrevUrl(previous)    
         getPokemon(results)
-        setLoading(false) 
+        setLoading(false)         
   
       } catch (error) {
         console.log(error.message);
@@ -108,7 +108,6 @@ const List = () => {
           </div>
         </div>
         {/* Buttons */}
-
 
         {/* Cards */}
         <div className="flex justify-center align-baseline content-center flex-wrap">

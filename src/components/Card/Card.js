@@ -29,10 +29,8 @@ const Card = ({pokemon, loading}) => {
                         </div>
                     </a>
                 )
-
             })
         }
-
     </>
   )
 }
