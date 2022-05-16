@@ -3,8 +3,13 @@
 ## Technologies
 To build this app I used [ReactJS](https://reactjs.org/), CSS, and HTML.
 
+Dependencias Utilizadas 🛠️
+- React JS
+- Tailwind CSS
+- React Router DOM
+
 ## Demo
-You can see it deployed [here](https://gregarious-medovik-37f771.netlify.app/) 👈
+👉🏼 [Link del proyecto](https://trusting-shockley-92f2ca.netlify.app/) 👈🏼
 
 # Getting Started with Create React App
 
