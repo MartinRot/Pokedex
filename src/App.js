@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-//import './App.css';
 import { useState } from "react";
 import Login from "./pages/Login/Login"
 import Dashboard from "./pages/Dashboard/Dashboard"
@@ -25,30 +24,28 @@ function App() {
 
   return (
     <div className="App">
+      <BrowserRouter>
+        <DashboardProvider value={{onLogout, onSuccess, isLogged}}>
 
-    <BrowserRouter>
-      <DashboardProvider value={{onLogout, onSuccess, isLogged}}>
+          <Routes>
 
-        <Routes>
+            <Route path="/" >
+              <Route index element={isLogged ? <Dashboard /> : <Landing /> } />
 
-          <Route path="/" >
-            <Route index element={isLogged ? <Dashboard /> : <Landing /> } />
+              <Route path=":id" element={ isLogged ? < PokeDetails /> : <Landing /> } />           
+            </Route>
 
-            <Route path=":id" element={ isLogged ? < PokeDetails /> : <Landing /> } />           
-          </Route>
+            {isLogged ? null : (
+              <Route path="/login" element={ <Login /> } />
+            )}          
 
-          {isLogged ? null : (
-            <Route path="/login" element={ <Login /> } />
-          )}          
+            {/* 404 not found / nomatch */}
+            <Route path="*" element={<NoMatch />} />
+            
+          </Routes>
 
-          {/* 404 not found / nomatch */}
-          <Route path="*" element={<NoMatch />} />
-          
-        </Routes>
-
-      </DashboardProvider>
-    </BrowserRouter>
-
+        </DashboardProvider>
+      </BrowserRouter>
     </div>
   );
 }
