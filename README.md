@@ -3,7 +3,7 @@
 ## Technologies
 To build this app I used [ReactJS](https://reactjs.org/), CSS, and HTML.
 
-Dependencias Utilizadas 🛠️
+dependencies Used 🛠️
 - React JS
 - Tailwind CSS
 - React Router DOM
