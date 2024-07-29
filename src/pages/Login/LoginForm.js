@@ -14,6 +14,7 @@ const LoginForm = ({ onSuccess }) => {
   const passwordRef = useRef();
   const [error, setError] = useState('')
 
+/* 
   function handleSubmit(e){
     e.preventDefault()
 
@@ -33,6 +34,32 @@ const LoginForm = ({ onSuccess }) => {
     setError("Datos Incorrectos!"); 
 
     console.log(error)       
+  }
+ */
+
+  function handleSubmit(e){
+    e.preventDefault()
+
+    if (userRef.current.value === "Ash") {
+      if (passwordRef.current.value === "test") {
+        setError("");
+
+        window.localStorage.setItem("isLogged", true);
+
+        onSuccess();
+
+        return ;
+      }
+    } else {
+
+      window.localStorage.setItem("isLogged", true);    
+      onSuccess();
+      setError("Datos Incorrectos!"); 
+      console.log(error)
+      return ;
+    }
+
+
   }
 
   return (

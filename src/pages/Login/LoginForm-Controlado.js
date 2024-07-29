@@ -11,7 +11,7 @@ const LoginForm = ({ onSuccess }) => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-  
+/*   
     function handleClick() {
       if (user === "Ash") {
         if (password === "test") {
@@ -27,6 +27,24 @@ const LoginForm = ({ onSuccess }) => {
   
       window.localStorage.setItem("isLogged", false);
       setError("Datos Incorrectos");
+    }
+ */
+    function handleClick() {
+
+      if (user === "Ash") {
+        if (password === "test") {
+          setError("");
+  
+          window.localStorage.setItem("isLogged", true);
+          onSuccess();
+  
+          return ;
+        }
+      }
+
+      window.localStorage.setItem("isLogged", true);
+      console.log("hola")
+
     }
   
     function onUserChange(event) {
